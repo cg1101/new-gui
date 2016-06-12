@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="newGuiApp">
 <head>
     <title>Appen Tiger - Home</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
@@ -31,7 +31,7 @@
     <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
 </head>
-<body>
+<body ng-controller="MainCtrl">
 <!-- navbar -->
 <header class="navbar navbar-inverse" role="banner">
     <div class="navbar-header">
@@ -581,6 +581,7 @@
 <script src="/static/lib/jquery/dist/jquery.js"></script>
 <script src="/lib/angular/angular.js"></script>
 <script src="/lib/angular-ui-router/release/angular-ui-router.js"></script>
+<script src="/application.js"></script>
 <script src="/static/lib/bootstrap/bootstrap.min.js"></script>
 <script src="/static/lib/jquery-ui/jquery-ui-1.10.2.custom.min.js"></script>
 <!-- knob -->
