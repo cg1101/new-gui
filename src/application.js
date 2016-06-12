@@ -51,3 +51,16 @@ mod.config(function ($stateProvider) {
         controller: 'ChartShowcaseCtrl'
     });
 });
+
+mod.controller('UserListCtrl', function($scope, $log) {
+    $log.debug('UserListCtrl', $scope.$id);
+    $log.debug('UserList now');
+});
+
+mod.config(function ($stateProvider) {
+    $stateProvider.state('user_list', {
+        url: '/user-list',
+        templateUrl: 'views/user-list.html',
+        controller: 'UserListCtrl'
+    });
+});
