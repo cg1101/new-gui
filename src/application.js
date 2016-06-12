@@ -26,7 +26,7 @@ mod.run(function ($rootScope, $state, $log) {
     });
 });
 
-mod.controller('IndexCtrl', function($scope) {
+mod.controller('IndexCtrl', function ($scope, $log) {
     $log.debug('IndexCtrl', $scope.$id);
     $log.debug('Hi, this is index');
 });

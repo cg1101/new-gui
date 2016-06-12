@@ -32,7 +32,10 @@
     <![endif]-->
 </head>
 <body ng-controller="MainCtrl">
-<!-- navbar -->
+
+<!--
+
+&lt;!&ndash; navbar &ndash;&gt;
 <header class="navbar navbar-inverse" role="banner">
     <div class="navbar-header">
         <button class="navbar-toggle" type="button" data-toggle="collapse" id="menu-toggler">
@@ -167,9 +170,9 @@
         </li>
     </ul>
 </header>
-<!-- end navbar -->
+&lt;!&ndash; end navbar &ndash;&gt;
 
-<!-- sidebar -->
+&lt;!&ndash; sidebar &ndash;&gt;
 <div id="sidebar-nav">
     <ul id="dashboard-menu">
         <li class="active">
@@ -266,13 +269,13 @@
         </li>
     </ul>
 </div>
-<!-- end sidebar -->
+&lt;!&ndash; end sidebar &ndash;&gt;
 
 
-<!-- main container -->
+&lt;!&ndash; main container &ndash;&gt;
 <div class="content">
 
-    <!-- settings changer -->
+    &lt;!&ndash; settings changer &ndash;&gt;
     <div class="skins-nav">
         <a href="#" class="skin first_nav selected">
             <span class="icon"></span><span class="text">Default skin</span>
@@ -282,7 +285,7 @@
         </a>
     </div>
 
-    <!-- upper main stats -->
+    &lt;!&ndash; upper main stats &ndash;&gt;
     <div id="main-stats">
         <div class="row stats-row">
             <div class="col-md-3 col-sm-3 stat">
@@ -315,11 +318,11 @@
             </div>
         </div>
     </div>
-    <!-- end upper main stats -->
+    &lt;!&ndash; end upper main stats &ndash;&gt;
 
     <div id="pad-wrapper">
 
-        <!-- statistics chart built with jQuery Flot -->
+        &lt;!&ndash; statistics chart built with jQuery Flot &ndash;&gt;
         <div class="row chart">
             <div class="col-md-12">
                 <h4 class="clearfix pull-left">
@@ -336,9 +339,9 @@
                 <div id="statsChart"></div>
             </div>
         </div>
-        <!-- end statistics chart -->
+        &lt;!&ndash; end statistics chart &ndash;&gt;
 
-        <!-- UI Elements section -->
+        &lt;!&ndash; UI Elements section &ndash;&gt;
         <div class="row section ui-elements">
             <div class="col-md-12">
                 <h4>UI Elements</h4>
@@ -409,10 +412,10 @@
                 </div>
             </div>
         </div>
-        <!-- end UI elements section -->
+        &lt;!&ndash; end UI elements section &ndash;&gt;
 
-        <!-- table sample -->
-        <!-- the script for the toggle all checkboxes from header is located in /static/js/theme.js -->
+        &lt;!&ndash; table sample &ndash;&gt;
+        &lt;!&ndash; the script for the toggle all checkboxes from header is located in /static/js/theme.js &ndash;&gt;
         <div class="table-products section">
             <div class="row head">
                 <div class="col-md-12">
@@ -453,7 +456,7 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <!-- row -->
+                    &lt;!&ndash; row &ndash;&gt;
                     <tr class="first">
                         <td>
                             <input type="checkbox">
@@ -475,7 +478,7 @@
                             </ul>
                         </td>
                     </tr>
-                    <!-- row -->
+                    &lt;!&ndash; row &ndash;&gt;
                     <tr>
                         <td>
                             <input type="checkbox">
@@ -496,7 +499,7 @@
                             </ul>
                         </td>
                     </tr>
-                    <!-- row -->
+                    &lt;!&ndash; row &ndash;&gt;
                     <tr>
                         <td>
                             <input type="checkbox">
@@ -517,7 +520,7 @@
                             </ul>
                         </td>
                     </tr>
-                    <!-- row -->
+                    &lt;!&ndash; row &ndash;&gt;
                     <tr>
                         <td>
                             <input type="checkbox">
@@ -539,7 +542,7 @@
                             </ul>
                         </td>
                     </tr>
-                    <!-- row -->
+                    &lt;!&ndash; row &ndash;&gt;
                     <tr>
                         <td>
                             <input type="checkbox">
@@ -572,10 +575,13 @@
                 <li><a href="#">&raquo;</a></li>
             </ul>
         </div>
-        <!-- end table sample -->
+        &lt;!&ndash; end table sample &ndash;&gt;
     </div>
 </div>
 
+-->
+
+<ui-view></ui-view>
 
 <!-- scripts -->
 <script src="/static/lib/jquery/dist/jquery.js"></script>
@@ -592,6 +598,7 @@
 <script src="/static/lib/jquery.flot/jquery.flot.resize.js"></script>
 <script src="/static/js/theme.js"></script>
 
+<!--
 <script type="text/javascript">
     $(function () {
 
@@ -706,5 +713,7 @@
         });
     });
 </script>
+-->
+
 </body>
 </html>
