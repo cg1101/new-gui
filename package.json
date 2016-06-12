@@ -1,0 +1,24 @@
+{
+  "name": "new-gui",
+  "version": "1.0.0",
+  "description": "An angularjs application that uses pre-selected GUI template. ",
+  "main": "index.js",
+  "scripts": {
+    "start": "http-server -a localhost -p 8000 -c-1 app/",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://cg1101@github.com/cg1101/new-gui.git"
+  },
+  "author": "cg1101@gmail.com",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cg1101/new-gui/issues"
+  },
+  "homepage": "https://github.com/cg1101/new-gui#readme",
+  "devDependencies": {
+    "bower": "^1.7.9",
+    "http-server": "^0.9.0"
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "name": "new-gui",
+  "description": "An angularjs application that uses pre-selected GUI template.",
+  "main": "index.js",
+  "authors": [
+    "cg1101@gmail.com"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/cg1101/new-gui",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "angularjs#^1.5.6"
+  }
+}
