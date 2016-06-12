@@ -38,3 +38,16 @@ mod.config(function ($stateProvider) {
         controller: 'IndexCtrl'
     });
 });
+
+mod.controller('ChartShowcaseCtrl', function ($scope, $log) {
+    $log.debug('ChartShowcaseCtrl', $scope.$id);
+    $log.debug('And it is ChartShowcase now');
+});
+
+mod.config(function ($stateProvider) {
+    $stateProvider.state('chart_showcase', {
+        url: '/chart-showcase',
+        templateUrl: 'views/chart-showcase.html',
+        controller: 'ChartShowcaseCtrl'
+    });
+});
