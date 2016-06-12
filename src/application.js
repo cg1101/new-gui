@@ -64,3 +64,17 @@ mod.config(function ($stateProvider) {
         controller: 'UserListCtrl'
     });
 });
+
+mod.controller('NewUserCtrl', function($scope, $log) {
+    $log.debug('NewUserCtrl', $scope.$id);
+    $log.debug('NewUser running');
+});
+
+mod.config(function ($stateProvider) {
+    $stateProvider.state('new_user', {
+        url: '/new-user',
+        templateUrl: 'views/new-user.html',
+        controller: 'NewUserCtrl'
+    });
+});
+
