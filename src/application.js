@@ -246,3 +246,16 @@ mod.config(function ($stateProvider) {
         controller: 'SignInCtrl'
     });
 });
+
+mod.controller('SignUpCtrl', function($scope, $log) {
+    $log.debug('SignUpCtrl', $scope.$id);
+    $log.debug('SignUpCtrl running');
+});
+
+mod.config(function ($stateProvider) {
+    $stateProvider.state('signup', {
+        url: '/signup',
+        templateUrl: 'views/signup.html',
+        controller: 'SignUpCtrl'
+    });
+});
