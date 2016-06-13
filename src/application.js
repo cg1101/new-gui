@@ -142,3 +142,16 @@ mod.config(function ($stateProvider) {
         controller: 'CalendarCtrl'
     });
 });
+
+mod.controller('TablesCtrl', function($scope, $log) {
+    $log.debug('TablesCtrl', $scope.$id);
+    $log.debug('TablesCtrl running');
+});
+
+mod.config(function ($stateProvider) {
+    $stateProvider.state('tables', {
+        url: '/tables',
+        templateUrl: 'views/tables.html',
+        controller: 'TablesCtrl'
+    });
+});
