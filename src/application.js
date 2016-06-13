@@ -129,3 +129,16 @@ mod.config(function ($stateProvider) {
         controller: 'GalleryCtrl'
     });
 });
+
+mod.controller('CalendarCtrl', function($scope, $log) {
+    $log.debug('CalendarCtrl', $scope.$id);
+    $log.debug('CalendarCtrl running');
+});
+
+mod.config(function ($stateProvider) {
+    $stateProvider.state('calendar', {
+        url: '/calendar',
+        templateUrl: 'views/calendar.html',
+        controller: 'CalendarCtrl'
+    });
+});
