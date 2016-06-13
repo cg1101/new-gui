@@ -397,8 +397,50 @@ mod.directive('mySideBar', function () {
     };
 });
 
-mod.controller('MyHeaderBarCtrl', function ($scope) {
+mod.controller('MyHeaderBarCtrl', function ($scope, $log) {
+    $log.debug('MyHeaderBarCtrl', $scope.$id);
+});
 
+mod.run(function ($rootScope, $log) {
+    var headerStyles = {
+        index: 'default',
+        chart_showcase: 'default',
+        user_list: 'default',
+        new_user: 'default',
+        user_profile: 'default',
+        form_showcase: 'default',
+        form_wizard: 'default',
+        gallery: 'default',
+        calendar: 'default',
+        tables: 'default',
+        datatables: 'default',
+        ui_elements: 'default',
+        icons: 'default',
+        personal_info: 'noSideBar',
+        code_editor: 'default',
+        grids: 'default',
+        signin: null,
+        signup: null
+    };
+    if (angular.isUndefined($rootScope.guiSettings)) {
+        $rootScope.guiSettings = {
+            headerVisible: false,
+            headerStyle: null,
+            sideBarVisible: false
+        };
+    }
+    $rootScope.$on('$stateChangeSuccess', function (event, toState, toParams, fromState, fromParams) {
+        $log.debug('Success: from ' + fromState.name, 'to ' + toState.name);
+        var style = headerStyles[toState.name];
+        if (style) {
+            $rootScope.guiSettings.headerVisible = true;
+            $rootScope.guiSettings.headerStyle = style;
+        } else {
+            $rootScope.guiSettings.headerVisible = false;
+            $rootScope.guiSettings.headerStyle = null;
+        }
+        $log.debug('guiSettings', $rootScope.guiSettings);
+    });
 });
 
 mod.directive('myHeaderBar', function () {
@@ -406,7 +448,7 @@ mod.directive('myHeaderBar', function () {
         restrict: 'A',
         templateUrl: 'components/my-header-bar.html',
         controller: 'MyHeaderBarCtrl as ctrl',
-        link: function(scope, iElement, iAttrs) {
+        link: function (scope, iElement, iAttrs) {
             iElement.attr('role', 'banner');
             iAttrs.$addClass('navbar navbar-inverse');
         }
