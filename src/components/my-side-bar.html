@@ -1,7 +1,7 @@
 <ul id="dashboard-menu">
     <li ng-repeat="node in nodes"
-        ng-class="{active: ctrl.isActive(node)}">
-        <div class="pointer" ng-if="ctrl.isCurrent(node)">
+        ng-class="{active: ctrl.isActive(node, true)}">
+        <div class="pointer" ng-if="ctrl.isActive(node)">
             <div class="arrow"></div>
             <div class="arrow_border"></div>
         </div>
@@ -15,7 +15,7 @@
             <span>{{node.label}}</span>
             <i class="icon-chevron-down"></i>
         </a>
-        <ul class="submenu" ng-if="node.children" ng-class="{active: node.expanded}">
+        <ul class="submenu" ng-if="node.children" ng-class="{active: ctrl.isActive(node, true)}">
             <li ng-repeat="childNode in node.children">
                 <a ui-sref="{{childNode.state}}">{{childNode.label}}</a>
             </li>

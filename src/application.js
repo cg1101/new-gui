@@ -375,7 +375,7 @@ mod.controller('MySideBarCtrl', function ($scope, $state) {
             icon: 'icon-share-alt'
         }
     ];
-    this.isCurrent = function (node) {
+    this.isActive = function (node, useExpanded) {
         if (node.state) {
             return node.state == $state.current.name;
         } else {
@@ -384,19 +384,7 @@ mod.controller('MySideBarCtrl', function ($scope, $state) {
                     return true;
                 }
             }
-            return false;
-        }
-    };
-    this.isActive = function (node) {
-        if (node.state) {
-            return node.state == $state.current.name;
-        } else {
-            for (var i = 0; i < node.children.length; i++) {
-                if (node.children[i].state == $state.current.name) {
-                    return true;
-                }
-            }
-            return node.expanded;
+            return useExpanded ? node.expanded : false;
         }
     }
 });
