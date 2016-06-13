@@ -104,3 +104,15 @@ mod.config(function ($stateProvider) {
     });
 });
 
+mod.controller('FormWizardCtrl', function($scope, $log) {
+    $log.debug('FormWizardCtrl', $scope.$id);
+    $log.debug('FormWizardCtrl running');
+});
+
+mod.config(function ($stateProvider) {
+    $stateProvider.state('form_wizard', {
+        url: '/form-wizard',
+        templateUrl: 'views/form-wizard.html',
+        controller: 'FormWizardCtrl'
+    });
+});
