@@ -220,3 +220,16 @@ mod.config(function ($stateProvider) {
         controller: 'CodeEditorCtrl'
     });
 });
+
+mod.controller('GridsCtrl', function($scope, $log) {
+    $log.debug('GridsCtrl', $scope.$id);
+    $log.debug('GridsCtrl running');
+});
+
+mod.config(function ($stateProvider) {
+    $stateProvider.state('grids', {
+        url: '/grids',
+        templateUrl: 'views/grids.html',
+        controller: 'GridsCtrl'
+    });
+});
