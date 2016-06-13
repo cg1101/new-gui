@@ -91,3 +91,16 @@ mod.config(function ($stateProvider) {
     });
 });
 
+mod.controller('FormShowcaseCtrl', function($scope, $log) {
+    $log.debug('FormShowcaseCtrl', $scope.$id);
+    $log.debug('FormShowcaseCtrl running');
+});
+
+mod.config(function ($stateProvider) {
+    $stateProvider.state('form_showcase', {
+        url: '/form-showcase',
+        templateUrl: 'views/form-showcase.html',
+        controller: 'FormShowcaseCtrl'
+    });
+});
+
