@@ -78,3 +78,16 @@ mod.config(function ($stateProvider) {
     });
 });
 
+mod.controller('UserProfileCtrl', function($scope, $log) {
+    $log.debug('UserProfileCtrl', $scope.$id);
+    $log.debug('UserProfile running');
+});
+
+mod.config(function ($stateProvider) {
+    $stateProvider.state('user_profile', {
+        url: '/user-profile',
+        templateUrl: 'views/user-profile.html',
+        controller: 'UserProfileCtrl'
+    });
+});
+
