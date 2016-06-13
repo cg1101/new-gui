@@ -233,3 +233,16 @@ mod.config(function ($stateProvider) {
         controller: 'GridsCtrl'
     });
 });
+
+mod.controller('SignInCtrl', function($scope, $log) {
+    $log.debug('SignInCtrl', $scope.$id);
+    $log.debug('SignInCtrl running');
+});
+
+mod.config(function ($stateProvider) {
+    $stateProvider.state('signin', {
+        url: '/signin',
+        templateUrl: 'views/signin.html',
+        controller: 'SignInCtrl'
+    });
+});
