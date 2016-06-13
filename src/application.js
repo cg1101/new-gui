@@ -408,3 +408,19 @@ mod.directive('mySideBar', function () {
         controller: 'MySideBarCtrl as ctrl'
     };
 });
+
+mod.controller('MyHeaderBarCtrl', function ($scope) {
+
+});
+
+mod.directive('myHeaderBar', function () {
+    return {
+        restrict: 'A',
+        templateUrl: 'components/my-header-bar.html',
+        controller: 'MyHeaderBarCtrl as ctrl',
+        link: function(scope, iElement, iAttrs) {
+            iElement.attr('role', 'banner');
+            iAttrs.$addClass('navbar navbar-inverse');
+        }
+    }
+});
