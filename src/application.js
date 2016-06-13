@@ -52,7 +52,7 @@ mod.config(function ($stateProvider) {
     });
 });
 
-mod.controller('UserListCtrl', function($scope, $log) {
+mod.controller('UserListCtrl', function ($scope, $log) {
     $log.debug('UserListCtrl', $scope.$id);
     $log.debug('UserList now');
 });
@@ -65,7 +65,7 @@ mod.config(function ($stateProvider) {
     });
 });
 
-mod.controller('NewUserCtrl', function($scope, $log) {
+mod.controller('NewUserCtrl', function ($scope, $log) {
     $log.debug('NewUserCtrl', $scope.$id);
     $log.debug('NewUser running');
 });
@@ -78,7 +78,7 @@ mod.config(function ($stateProvider) {
     });
 });
 
-mod.controller('UserProfileCtrl', function($scope, $log) {
+mod.controller('UserProfileCtrl', function ($scope, $log) {
     $log.debug('UserProfileCtrl', $scope.$id);
     $log.debug('UserProfile running');
 });
@@ -91,7 +91,7 @@ mod.config(function ($stateProvider) {
     });
 });
 
-mod.controller('FormShowcaseCtrl', function($scope, $log) {
+mod.controller('FormShowcaseCtrl', function ($scope, $log) {
     $log.debug('FormShowcaseCtrl', $scope.$id);
     $log.debug('FormShowcaseCtrl running');
 });
@@ -104,7 +104,7 @@ mod.config(function ($stateProvider) {
     });
 });
 
-mod.controller('FormWizardCtrl', function($scope, $log) {
+mod.controller('FormWizardCtrl', function ($scope, $log) {
     $log.debug('FormWizardCtrl', $scope.$id);
     $log.debug('FormWizardCtrl running');
 });
@@ -117,7 +117,7 @@ mod.config(function ($stateProvider) {
     });
 });
 
-mod.controller('GalleryCtrl', function($scope, $log) {
+mod.controller('GalleryCtrl', function ($scope, $log) {
     $log.debug('GalleryCtrl', $scope.$id);
     $log.debug('GalleryCtrl running');
 });
@@ -130,7 +130,7 @@ mod.config(function ($stateProvider) {
     });
 });
 
-mod.controller('CalendarCtrl', function($scope, $log) {
+mod.controller('CalendarCtrl', function ($scope, $log) {
     $log.debug('CalendarCtrl', $scope.$id);
     $log.debug('CalendarCtrl running');
 });
@@ -143,7 +143,7 @@ mod.config(function ($stateProvider) {
     });
 });
 
-mod.controller('TablesCtrl', function($scope, $log) {
+mod.controller('TablesCtrl', function ($scope, $log) {
     $log.debug('TablesCtrl', $scope.$id);
     $log.debug('TablesCtrl running');
 });
@@ -156,7 +156,7 @@ mod.config(function ($stateProvider) {
     });
 });
 
-mod.controller('DataTablesCtrl', function($scope, $log) {
+mod.controller('DataTablesCtrl', function ($scope, $log) {
     $log.debug('DataTablesCtrl', $scope.$id);
     $log.debug('DataTablesCtrl running');
 });
@@ -169,7 +169,7 @@ mod.config(function ($stateProvider) {
     });
 });
 
-mod.controller('UIElementsCtrl', function($scope, $log) {
+mod.controller('UIElementsCtrl', function ($scope, $log) {
     $log.debug('UIElementsCtrl', $scope.$id);
     $log.debug('UIElementsCtrl running');
 });
@@ -182,7 +182,7 @@ mod.config(function ($stateProvider) {
     });
 });
 
-mod.controller('IconsCtrl', function($scope, $log) {
+mod.controller('IconsCtrl', function ($scope, $log) {
     $log.debug('IconsCtrl', $scope.$id);
     $log.debug('IconsCtrl running');
 });
@@ -195,7 +195,7 @@ mod.config(function ($stateProvider) {
     });
 });
 
-mod.controller('PersonalInfoCtrl', function($scope, $log) {
+mod.controller('PersonalInfoCtrl', function ($scope, $log) {
     $log.debug('PersonalInfoCtrl', $scope.$id);
     $log.debug('PersonalInfoCtrl running');
 });
@@ -208,7 +208,7 @@ mod.config(function ($stateProvider) {
     });
 });
 
-mod.controller('CodeEditorCtrl', function($scope, $log) {
+mod.controller('CodeEditorCtrl', function ($scope, $log) {
     $log.debug('CodeEditorCtrl', $scope.$id);
     $log.debug('CodeEditorCtrl running');
 });
@@ -221,7 +221,7 @@ mod.config(function ($stateProvider) {
     });
 });
 
-mod.controller('GridsCtrl', function($scope, $log) {
+mod.controller('GridsCtrl', function ($scope, $log) {
     $log.debug('GridsCtrl', $scope.$id);
     $log.debug('GridsCtrl running');
 });
@@ -234,7 +234,7 @@ mod.config(function ($stateProvider) {
     });
 });
 
-mod.controller('SignInCtrl', function($scope, $log) {
+mod.controller('SignInCtrl', function ($scope, $log) {
     $log.debug('SignInCtrl', $scope.$id);
     $log.debug('SignInCtrl running');
 });
@@ -247,7 +247,7 @@ mod.config(function ($stateProvider) {
     });
 });
 
-mod.controller('SignUpCtrl', function($scope, $log) {
+mod.controller('SignUpCtrl', function ($scope, $log) {
     $log.debug('SignUpCtrl', $scope.$id);
     $log.debug('SignUpCtrl running');
 });
@@ -258,4 +258,153 @@ mod.config(function ($stateProvider) {
         templateUrl: 'views/signup.html',
         controller: 'SignUpCtrl'
     });
+});
+
+mod.controller('MySideBarCtrl', function ($scope, $state) {
+    $scope.nodes = [
+        {
+            label: 'Home',
+            state: 'index',
+            icon: 'icon-home'
+        },
+        {
+            label: 'Charts',
+            state: 'chart_showcase',
+            icon: 'icon-signal'
+        },
+        {
+            label: 'Users',
+            expanded: false,
+            children: [
+                {
+                    label: 'User list',
+                    state: 'user_list'
+                },
+                {
+                    label: 'New user form',
+                    state: 'new_user'
+                },
+                {
+                    label: 'User profile',
+                    state: 'user_profile'
+                }
+            ],
+            icon: 'icon-group'
+        },
+        {
+            label: 'Form',
+            expanded: false,
+            children: [
+                {
+                    label: 'Form showcase',
+                    state: 'form_showcase'
+                },
+                {
+                    label: 'Form wizard',
+                    state: 'form_wizard'
+                }
+            ],
+            icon: 'icon-edit'
+        },
+        {
+            label: 'Gallery',
+            state: 'gallery',
+            icon: 'icon-picture'
+        },
+        {
+            label: 'Calendar',
+            state: 'calendar',
+            icon: 'icon-calendar-empty'
+        },
+        {
+            label: 'Tables',
+            expanded: false,
+            children: [
+                {
+                    label: 'Custom tables',
+                    state: 'tables'
+                },
+                {
+                    label: 'DataTables',
+                    state: 'datatables'
+                }
+            ],
+            icon: 'icon-th-large'
+        },
+        {
+            label: 'UI Element',
+            expanded: false,
+            children: [
+                {
+                    label: 'UI Elements',
+                    state: 'ui_elements'
+                },
+                {
+                    label: 'Icons',
+                    state: 'icons'
+                }
+            ],
+            icon: 'icon-code-fork'
+        },
+        {
+            label: 'My Info',
+            state: 'personal_info',
+            icon: 'icon-cog'
+        },
+        {
+            label: 'Extras',
+            expanded: false,
+            children: [
+                {
+                    label: 'Code editor',
+                    state: 'code_editor'
+                },
+                {
+                    label: 'Grids',
+                    state: 'grids'
+                },
+                {
+                    label: 'Sign in',
+                    state: 'signin'
+                },
+                {
+                    label: 'Sign up',
+                    state: 'signup'
+                }
+            ],
+            icon: 'icon-share-alt'
+        }
+    ];
+    this.isCurrent = function (node) {
+        if (node.state) {
+            return node.state == $state.current.name;
+        } else {
+            for (var i = 0; i < node.children.length; i++) {
+                if (node.children[i].state == $state.current.name) {
+                    return true;
+                }
+            }
+            return false;
+        }
+    };
+    this.isActive = function (node) {
+        if (node.state) {
+            return node.state == $state.current.name;
+        } else {
+            for (var i = 0; i < node.children.length; i++) {
+                if (node.children[i].state == $state.current.name) {
+                    return true;
+                }
+            }
+            return node.expanded;
+        }
+    }
+});
+
+mod.directive('mySideBar', function () {
+    return {
+        restrict: 'A',
+        templateUrl: 'components/my-side-bar.html',
+        controller: 'MySideBarCtrl as ctrl'
+    };
 });

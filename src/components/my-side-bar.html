@@ -1,0 +1,24 @@
+<ul id="dashboard-menu">
+    <li ng-repeat="node in nodes"
+        ng-class="{active: ctrl.isActive(node)}">
+        <div class="pointer" ng-if="ctrl.isCurrent(node)">
+            <div class="arrow"></div>
+            <div class="arrow_border"></div>
+        </div>
+        <a ng-if="node.state" ui-sref="{{node.state}}">
+            <i ng-class="node.icon"></i>
+            <span>{{node.label}}</span>
+        </a>
+        <a ng-if="node.children" style="cursor:pointer"
+           ng-click="node.expanded = !node.expanded">
+            <i ng-class="node.icon"></i>
+            <span>{{node.label}}</span>
+            <i class="icon-chevron-down"></i>
+        </a>
+        <ul class="submenu" ng-if="node.children" ng-class="{active: node.expanded}">
+            <li ng-repeat="childNode in node.children">
+                <a ui-sref="{{childNode.state}}">{{childNode.label}}</a>
+            </li>
+        </ul>
+    </li>
+</ul>
