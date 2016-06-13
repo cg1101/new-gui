@@ -116,3 +116,16 @@ mod.config(function ($stateProvider) {
         controller: 'FormWizardCtrl'
     });
 });
+
+mod.controller('GalleryCtrl', function($scope, $log) {
+    $log.debug('GalleryCtrl', $scope.$id);
+    $log.debug('GalleryCtrl running');
+});
+
+mod.config(function ($stateProvider) {
+    $stateProvider.state('gallery', {
+        url: '/gallery',
+        templateUrl: 'views/gallery.html',
+        controller: 'GalleryCtrl'
+    });
+});
