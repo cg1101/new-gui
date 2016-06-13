@@ -168,3 +168,16 @@ mod.config(function ($stateProvider) {
         controller: 'DataTablesCtrl'
     });
 });
+
+mod.controller('UIElementsCtrl', function($scope, $log) {
+    $log.debug('UIElementsCtrl', $scope.$id);
+    $log.debug('UIElementsCtrl running');
+});
+
+mod.config(function ($stateProvider) {
+    $stateProvider.state('ui_elements', {
+        url: '/ui-elements',
+        templateUrl: 'views/ui-elements.html',
+        controller: 'UIElementsCtrl'
+    });
+});
