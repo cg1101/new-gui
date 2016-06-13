@@ -155,3 +155,16 @@ mod.config(function ($stateProvider) {
         controller: 'TablesCtrl'
     });
 });
+
+mod.controller('DataTablesCtrl', function($scope, $log) {
+    $log.debug('DataTablesCtrl', $scope.$id);
+    $log.debug('DataTablesCtrl running');
+});
+
+mod.config(function ($stateProvider) {
+    $stateProvider.state('datatables', {
+        url: '/datatables',
+        templateUrl: 'views/datatables.html',
+        controller: 'DataTablesCtrl'
+    });
+});
