@@ -207,3 +207,16 @@ mod.config(function ($stateProvider) {
         controller: 'PersonalInfoCtrl'
     });
 });
+
+mod.controller('CodeEditorCtrl', function($scope, $log) {
+    $log.debug('CodeEditorCtrl', $scope.$id);
+    $log.debug('CodeEditorCtrl running');
+});
+
+mod.config(function ($stateProvider) {
+    $stateProvider.state('code_editor', {
+        url: '/code-editor',
+        templateUrl: 'views/code-editor.html',
+        controller: 'CodeEditorCtrl'
+    });
+});
