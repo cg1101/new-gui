@@ -194,3 +194,16 @@ mod.config(function ($stateProvider) {
         controller: 'IconsCtrl'
     });
 });
+
+mod.controller('PersonalInfoCtrl', function($scope, $log) {
+    $log.debug('PersonalInfoCtrl', $scope.$id);
+    $log.debug('PersonalInfoCtrl running');
+});
+
+mod.config(function ($stateProvider) {
+    $stateProvider.state('personal_info', {
+        url: '/personal-info',
+        templateUrl: 'views/personal-info.html',
+        controller: 'PersonalInfoCtrl'
+    });
+});
