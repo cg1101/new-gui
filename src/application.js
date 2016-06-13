@@ -181,3 +181,16 @@ mod.config(function ($stateProvider) {
         controller: 'UIElementsCtrl'
     });
 });
+
+mod.controller('IconsCtrl', function($scope, $log) {
+    $log.debug('IconsCtrl', $scope.$id);
+    $log.debug('IconsCtrl running');
+});
+
+mod.config(function ($stateProvider) {
+    $stateProvider.state('icons', {
+        url: '/icons',
+        templateUrl: 'views/icons.html',
+        controller: 'IconsCtrl'
+    });
+});
