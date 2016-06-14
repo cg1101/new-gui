@@ -409,8 +409,14 @@ mod.directive('mySideBar', function () {
     };
 });
 
-mod.controller('MyHeaderBarCtrl', function ($scope, $log) {
+mod.controller('MyHeaderBarCtrl', function ($scope, $rootScope, $log) {
     $log.debug('MyHeaderBarCtrl', $scope.$id);
+    $rootScope.$watch('guiSettings.header.visible', function (visible) {
+        var iElement = $scope.iElement;
+        if (iElement) {
+            iElement.attr('style', visible ? null : 'display:none');
+        }
+    });
 });
 
 mod.directive('myHeaderBar', function () {
@@ -419,6 +425,7 @@ mod.directive('myHeaderBar', function () {
         templateUrl: 'components/my-header-bar.html',
         controller: 'MyHeaderBarCtrl as ctrl',
         link: function (scope, iElement, iAttrs) {
+            scope.iElement = iElement;
             iElement.attr('role', 'banner');
             iAttrs.$addClass('navbar navbar-inverse');
         }
