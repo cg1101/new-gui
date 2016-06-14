@@ -204,7 +204,11 @@ mod.config(function ($stateProvider) {
     $stateProvider.state('personal_info', {
         url: '/personal-info',
         templateUrl: 'views/personal-info.html',
-        controller: 'PersonalInfoCtrl'
+        controller: 'PersonalInfoCtrl',
+        data: {
+            headerStyle: 'navigation',
+            hideSideBar: true
+        }
     });
 });
 
@@ -243,7 +247,11 @@ mod.config(function ($stateProvider) {
     $stateProvider.state('signin', {
         url: '/signin',
         templateUrl: 'views/signin.html',
-        controller: 'SignInCtrl'
+        controller: 'SignInCtrl',
+        data: {
+            hideHeader: true,
+            hideSideBar: true
+        }
     });
 });
 
@@ -256,7 +264,11 @@ mod.config(function ($stateProvider) {
     $stateProvider.state('signup', {
         url: '/signup',
         templateUrl: 'views/signup.html',
-        controller: 'SignUpCtrl'
+        controller: 'SignUpCtrl',
+        data: {
+            headerStyle: 'simple',
+            hideSideBar: true
+        }
     });
 });
 
@@ -401,48 +413,6 @@ mod.controller('MyHeaderBarCtrl', function ($scope, $log) {
     $log.debug('MyHeaderBarCtrl', $scope.$id);
 });
 
-mod.run(function ($rootScope, $log) {
-    var headerStyles = {
-        index: 'default',
-        chart_showcase: 'default',
-        user_list: 'default',
-        new_user: 'default',
-        user_profile: 'default',
-        form_showcase: 'default',
-        form_wizard: 'default',
-        gallery: 'default',
-        calendar: 'default',
-        tables: 'default',
-        datatables: 'default',
-        ui_elements: 'default',
-        icons: 'default',
-        personal_info: 'noSideBar',
-        code_editor: 'default',
-        grids: 'default',
-        signin: null,
-        signup: null
-    };
-    if (angular.isUndefined($rootScope.guiSettings)) {
-        $rootScope.guiSettings = {
-            headerVisible: false,
-            headerStyle: null,
-            sideBarVisible: false
-        };
-    }
-    $rootScope.$on('$stateChangeSuccess', function (event, toState, toParams, fromState, fromParams) {
-        $log.debug('Success: from ' + fromState.name, 'to ' + toState.name);
-        var style = headerStyles[toState.name];
-        if (style) {
-            $rootScope.guiSettings.headerVisible = true;
-            $rootScope.guiSettings.headerStyle = style;
-        } else {
-            $rootScope.guiSettings.headerVisible = false;
-            $rootScope.guiSettings.headerStyle = null;
-        }
-        $log.debug('guiSettings', $rootScope.guiSettings);
-    });
-});
-
 mod.directive('myHeaderBar', function () {
     return {
         restrict: 'A',
@@ -453,4 +423,31 @@ mod.directive('myHeaderBar', function () {
             iAttrs.$addClass('navbar navbar-inverse');
         }
     }
+});
+
+mod.run(function ($rootScope, $log) {
+    if (angular.isUndefined($rootScope.guiSettings)) {
+        $rootScope.guiSettings = {
+            header: {
+                visible: false,
+                style: null
+            },
+            sideBar: {
+                visible: false
+            }
+        };
+    }
+    $rootScope.$on('$stateChangeSuccess', function (event, toState, toParams, fromState, fromParams) {
+        $log.debug('Success: from ' + fromState.name, 'to ' + toState.name);
+        var data = toState.data || {};
+        if (data.hideHeader) {
+            $rootScope.guiSettings.header.visible = false;
+            $rootScope.guiSettings.header.style = null;
+        } else {
+            $rootScope.guiSettings.header.visible = true;
+            $rootScope.guiSettings.header.style = data.headerStyle || 'default';
+        }
+        $rootScope.guiSettings.sideBar.visible = !data.hideSideBar;
+        $log.debug('guiSettings', $rootScope.guiSettings);
+    });
 });

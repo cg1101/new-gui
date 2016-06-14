@@ -1,4 +1,5 @@
-<ul id="dashboard-menu">
+<ul id="dashboard-menu"
+    ng-if="guiSettings.sideBar.visible">
     <li ng-repeat="node in nodes"
         ng-class="{active: ctrl.isActive(node, true)}">
         <div class="pointer" ng-if="ctrl.isActive(node)">

@@ -1,5 +1,6 @@
 <div class="navbar-header"
-     ng-show="guiSettings.headerVisible">
+     ng-if="guiSettings.header.visible"
+     ng-show="guiSettings.header.visible">
     <button class="navbar-toggle" type="button" data-toggle="collapse"
             id="menu-toggler"
             data-target=".navbar-collapse">
@@ -13,9 +14,9 @@
     </a>
 </div>
 <ul class="nav navbar-nav pull-right hidden-xs"
-    ng-if="guiSettings.headerStyle == 'default'"
-    ng-show="guiSettings.headerStyle == 'default'"
-    ng-class="{hideMeNow: guiSettings.headerStyle != 'default'}">
+    ng-if="guiSettings.header.style == 'default'"
+    ng-show="guiSettings.header.style == 'default'"
+    ng-class="{hideMeNow: guiSettings.header.style != 'default'}">
     <li class="hidden-xs hidden-sm">
         <input class="search" type="text"/>
     </li>
@@ -137,9 +138,9 @@
     </li>
 </ul>
 <nav class="collapse navbar-collapse" role="navigation"
-     ng-if="guiSettings.headerStyle == 'noSideBar'"
-     ng-show="guiSettings.headerStyle == 'noSideBar'"
-     ng-class="{hideMeNow: guiSettings.headerStyle != 'noSideBar'}">
+     ng-if="guiSettings.header.style == 'navigation'"
+     ng-show="guiSettings.header.style == 'navigation'"
+     ng-class="{hideMeNow: guiSettings.header.style != 'navigation'}">
     <ul class="nav navbar-nav">
         <li><a ui-sref="chart_showcase">Charts</a></li>
         <li><a ui-sref="user_list">Users</a></li>
