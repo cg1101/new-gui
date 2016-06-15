@@ -272,7 +272,7 @@ mod.config(function ($stateProvider) {
     });
 });
 
-mod.controller('MySideBarCtrl', function ($scope, $state) {
+mod.controller('MySideBarCtrl', function ($scope, $state, $rootScope) {
     $scope.nodes = [
         {
             label: 'Home',
@@ -398,7 +398,14 @@ mod.controller('MySideBarCtrl', function ($scope, $state) {
             }
             return useExpanded ? node.expanded : false;
         }
-    }
+    };
+    $rootScope.$on('$stateChangeSuccess', function () {
+        angular.forEach($scope.nodes, function (node) {
+            if (angular.isDefined('node.expanded')) {
+                node.expanded = false;
+            }
+        })
+    });
 });
 
 mod.directive('mySideBar', function () {
